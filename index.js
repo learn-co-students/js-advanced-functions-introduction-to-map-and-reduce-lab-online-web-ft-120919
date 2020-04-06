@@ -27,19 +27,10 @@ function mapToSquare(sourceArray) {
     return squaredNumbers
 }
 
-function reduceToTotal(sourceArray, startingPoint) {
-    let total = 0;
+function reduceToTotal(sourceArray, startingPoint = 0) {
+    let total = startingPoint;
     for(let i = 0; i < sourceArray.length; i++) {
-        if(startingPoint){
-            let arrayTotal = 0
-            arrayTotal += sourceArray[i]
-            total = startingPoint + arrayTotal
-
-        }
-        else{
-            total += sourceArray[i]
-        }
-         //console.log(total)
+        total = total + sourceArray[i]
     }
     
     return total
@@ -47,22 +38,18 @@ function reduceToTotal(sourceArray, startingPoint) {
 
 function reduceToAllTrue(sourceArray) {
     for(let i = 0; i < sourceArray.length; i++) {
-        if(sourceArray[i] === true){
-            return true
-        }
-        else {
+        if(!sourceArray[i]){
             return false
-        }
+        }    
     }
+    return true
 }
 
 function reduceToAnyTrue(sourceArray) {
     for(let i = 0; i < sourceArray.length; i++) {
-        if(sourceArray[i] === true){
+        if(sourceArray[i]){
             return true
-        }
-        else {
-            return false
-        }
+        }   
     }
+    return false
 }
